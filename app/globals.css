@@ -20,6 +20,34 @@ body {
   font-family: 'MyCustomFont', sans-serif;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1.5s ease-in forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 1.8s ease-in forwards;
+  animation-delay: 4s; /* Start fading out after 3 seconds */
+}
+
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

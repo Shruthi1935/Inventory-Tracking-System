@@ -6,10 +6,10 @@ export default function Home() {
   return (
     <div>
       <section id="intro" className="h-screen w-screen bg-[#FFF8EF] flex items-center justify-center">
-        <div className="flex flex-col space-y-8 items-center justify-center"> 
-          <div className="font-custom text-6xl text-[#550A1F] text-center m-3"> welcome to your inventory! </div>
+        <div className="flex flex-col space-y-8 items-center justify-center fade-in fade-out"> 
+          <div className="font-custom text-5xl text-[#550A1F] text-center m-3"> WELCOME TO YOUR </div>
           <Image src={gglogo} alt="Gourmet Grotto Logo" width={500} height={500} />
-          <div className="font-custom text-9xl text-[#550A1F] text-center">your gourmet grotto</div>
+          <div className="font-custom text-9xl text-[#550A1F] text-center animate-typing overflow-hidden whitespace-nowrap"> Gourmet Grotto </div>
         </div>
       </section>
 
