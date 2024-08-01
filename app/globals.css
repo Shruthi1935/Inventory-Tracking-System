@@ -2,39 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/* global.css */
 @font-face {
   font-family: 'MyCustomFont';
-  src: url('/fonts/MyCustomFont-Regular.otf') format('opentype');
+  src: url('/fonts/Ameda.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'MyCustomFont';
-  src: url('/fonts/MyCustomFont-Bold.otf') format('opentype');
+  src: url('/fonts/Ameda.otf') format('opentype');
   font-weight: bold;
   font-style: normal;
 }
 
 body {
   font-family: 'MyCustomFont', sans-serif;
-}
-
-/* Define Tailwind custom class */
-.font-Almeda {
-  font-family: 'MyCustomFont', sans-serif;
-}
-
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
