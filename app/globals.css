@@ -8,14 +8,12 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'MyCustomFont';
   src: url('/fonts/Ameda.otf') format('opentype');
   font-weight: bold;
   font-style: normal;
 }
-
 body {
   font-family: 'MyCustomFont', sans-serif;
 }
@@ -28,10 +26,36 @@ body {
     opacity: 1;
   }
 }
-
 .fade-in {
   animation: fadeIn 1.5s ease-in forwards;
 }
+
+
+@keyframes invisible {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.invisible {
+  animation: fadeIn 1.5s ease-in forwards;
+}
+
+@keyframes fadeInTwo {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-in-two {
+  animation: fadeIn 1.5s ease-in forwards;
+  animation-delay: 4.8s; /* Start fading in after 3 seconds */
+}
+
 
 @keyframes fadeOut {
   from {
@@ -41,10 +65,9 @@ body {
     opacity: 0;
   }
 }
-
 .fade-out {
   animation: fadeOut 1.8s ease-in forwards;
-  animation-delay: 4s; /* Start fading out after 3 seconds */
+  animation-delay: 3s; /* Start fading out after 3 seconds */
 }
 
 
