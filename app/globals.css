@@ -38,15 +38,6 @@ body {
   }
 }
 
-.fade-in {
-  animation: fadeIn 1.5s ease-in forwards;
-}
-
-.fade-out {
-  animation: fadeOut 1.8s ease-in forwards;
-  animation-delay: 3s; /* Start fading out after 3 seconds */
-}
-
 @keyframes fadeInAfter {
   from {
     opacity: 0;
@@ -56,9 +47,18 @@ body {
   }
 }
 
+.fade-in {
+  animation: fadeIn 1.3s ease-in forwards;
+}
+
+.fade-out {
+  animation: fadeOut 1.8s ease-in forwards;
+  animation-delay: 3s; /* Start fading out after 3 seconds */
+}
+
 .fade-in-after {
   animation: fadeInAfter 1.5s ease-in forwards;
-  animation-delay: 4.5s; /* Start fading in after previous animations (1.5s fade-in + 3s delay + 1.8s fade-out) */
+  animation-delay: 4s; /* Start fading in after previous animations */
   opacity: 0; /* Hide initially */
   animation-fill-mode: forwards; /* Retain final state (visible) after animation */
 }
