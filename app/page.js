@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
 import { useEffect, onClick, useState } from 'react';
-
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import ggDessert from '../public/img/gourmetGrottoDessert.png';
 import ggLogo from '../public/img/gourmetGrottoLogo.png';
@@ -12,6 +12,11 @@ import { doc, getDoc, setDoc, deleteDoc } from "firebase/firestore";
 
 
 export default function Home() {
+  
+  const router = useRouter(); // Correctly use the useRouter hook
+  const handleOpenGrotto = () => {
+    router.push('/inventory'); // Navigate to inventory page
+  };
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -72,14 +77,12 @@ export default function Home() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-
-
   
   return (
     <div>
       <section id="intro" className="h-screen w-screen bg-[#FFF8EF] flex items-center justify-center">
         <div id="welcome-screen" className="fade-in">
-          <div className="absolute top-0 left-0 m-4">
+          <div className="absolute top-0 left-0 m-4 fade-out">
             <Image src={ggLogo} alt="Gourmet Grotto Logo" width={100} height={100} className="text-left"/>
           </div>
           <div className="flex flex-col space-y-4 items-center justify-center fade-out"> 
@@ -92,31 +95,11 @@ export default function Home() {
         <div id="access-screen" className="fade-in h-screen w-screen bg-[#300A15] flex items-center justify-center hidden">  
           <div className="flex flex-col items-center justify-center space-y-14"> 
             <span className="font-custom text-7xl text-[#FFF8EF] text-center animate-typing overflow-hidden whitespace-nowrap"> Access Your Inventory Here </span>
-            <button className="fade-in-after font-custom text-xl text-[#FFF8EF] text-center border border-[#FFF8EF] rounded-full py-2 px-5 hover:-translate-y-3 duration-500"> Open Grotto </button>
+            <button 
+              onClick={handleOpenGrotto}
+              className="fade-in-after font-custom text-xl text-[#FFF8EF] text-center border border-[#FFF8EF] rounded-full py-2 px-5 hover:-translate-y-3 duration-500"> Open Grotto 
+            </button>
           </div>
-        </div>
-      </section>
-
-
-      <section id="inventory" className="h-screen w-screen bg-[#300A15]"> 
-        <div className="p-16">
-          
-          <div className="flex flex-col space-y-5"> 
-            <div className="font-custom text-8xl text-[#FFF8EF]"> Inventory </div>
-
-            <div className="flex flex-row space-x-8"> 
-              <div className="grid bg-[#FFF8EF] p-8 rounded-sm "> 
-                <div> hii </div> 
-                <div> hii </div> 
-              </div>
-
-              <div className="flex flex-col space-y-4"> 
-                <input type="text" placeholder="search / add..." className="font-custom text-lg text-center text-[#FFF8EF] bg-[#7C4455] rounded-full py-2 px-32" />
-                <div className="flex bg-[#FFF8EF] p-5 rounded-sm"> results </div>
-              </div>
-            </div>
-          </div>
-
         </div>
       </section>
 
