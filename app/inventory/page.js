@@ -68,28 +68,28 @@ export default function Inventory() {
 
   return (
     <div>
-      <section id="inventory" className="h-screen w-screen bg-[#300A15]"> 
-        <div className="p-16">
+      <section id="inventory" className="h-screen w-screen bg-[#300A15] fade-in"> 
+        <div className="p-12">
 
 
           <div className="flex flex-col space-y-8 font-custom text-lg"> 
             <div className="font-custom text-8xl text-[#FFF8EF]"> Inventory </div>
 
             <div className="flex flex-row space-x-8"> 
-              <div className="flex flex-col bg-[#FFF8EF] p-8 rounded-sm"> 
-                {/* here i want the items added by the user to show up as well as the quantity*/}
+              {/* here i want the items added by the user to show up as well as the quantity*/}
+              <div className="flex flex-col bg-[#7c445566] p-10 rounded-md overflow-hidden overflow-y-auto max-h-[600px]"> 
                 {inventory.map(item => (
-                  <div className="flex flex-row justify-between space-x-32 border-b border-[#300A15] p-3">
-                    <div className=""> {item.name} </div>
-                    <div className="flex flex-row items-center justify-between space-x-6">
+                  <div className="flex flex-row justify-between space-x-32 border-b border-[#9e8f933d] p-4">
+                    <div className="text-[#c8c8c8a6]"> {item.name} </div>
+                    <div className="flex flex-row items-center justify-between space-x-8">
                       <button 
                         onClick={() => removeItem(item.name)}
-                        className="text-red-500"> <FontAwesomeIcon icon={faMinus} />
+                        className="text-[#c8c8c8a6]"> <FontAwesomeIcon icon={faMinus} />
                       </button>
-                      <div className="font-custom text-lg"> {item.quantity} </div>
+                      <div className="text-[#c8c8c8a6]"> {item.quantity} </div>
                       <button 
                         onClick={() => addItem(item.name)}
-                        className="text-green-900"> <FontAwesomeIcon icon={faPlus} />
+                        className="text-[#c8c8c8a6]"> <FontAwesomeIcon icon={faPlus} />
                       </button>
                     </div>
                   </div>
