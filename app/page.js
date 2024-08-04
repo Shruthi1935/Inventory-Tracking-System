@@ -12,7 +12,7 @@ import { doc, getDoc, setDoc, deleteDoc } from "firebase/firestore";
 
 
 export default function Home() {
-  
+
   const router = useRouter(); // Correctly use the useRouter hook
   const handleOpenGrotto = () => {
     router.push('/inventory'); // Navigate to inventory page
@@ -25,58 +25,6 @@ export default function Home() {
     }, 4600);
     return () => clearTimeout(timeout);
   }, []);
-
-  // Inventory Management Helper Functions
-  const [inventory, setInventory] = useState([]); // default value is empty array
-  const [open, setOpen] = useState(false); // default value is false
-  const [itemName, setItemName] = useState(''); // default value is empty string
-
-  const updateInventory = async () => {
-    const snapshot = query(collection(firestore, 'inventory'));
-    const docs = await getDocs(snapshot);
-    const inventoryList = [];
-    docs.forEach((doc) => {
-      inventoryList.push({
-        name: doc.id,
-        ...doc.data(),
-      });
-    });
-    setInventory(inventoryList);
-  };
-
-  const addItem = async (item) => {
-    const docRef = doc(collection(firestore, 'inventory'), item);
-    const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-      const { quantity } = docSnap.data();
-      await setDoc(docRef, { quantity: quantity + 1 });
-    } else {
-      await setDoc(docRef, { quantity: 1 });
-    }
-    await updateInventory();
-  };
-
-  const removeItem = async (item) => {
-    const docRef = doc(collection(firestore, 'inventory'), item);
-    const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-      const { quantity } = docSnap.data();
-      if (quantity === 1) {
-        await deleteDoc(docRef);
-      } else {
-        await setDoc(docRef, { quantity: quantity - 1 });
-      }
-    }
-    await updateInventory();
-  };
-
-  useEffect(() => {
-    updateInventory();
-  }, []);
-
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
   
   return (
     <div>
@@ -102,7 +50,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }
