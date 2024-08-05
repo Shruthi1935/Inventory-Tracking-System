@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Welcome to my Inventory Tracker App!
 
-Check out my app right here at https://inventory-tracking-system-jb8mlqf68.vercel.app/inventory
+Check out my app right here at https://inventory-tracking-system-jb8mlqf68.vercel.app/
 
 ## Technology Stack
 
