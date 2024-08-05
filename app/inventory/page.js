@@ -16,6 +16,8 @@ export default function Inventory() {
   const [open, setOpen] = useState(false); // default value is false
   const [itemName, setItemName] = useState(''); // item name to find or add items
   const [searchResults, setSearchResults] = useState([]); // search to find or add items
+  const [successMessage, setSuccessMessage] = useState('');
+
 
   // fetch inventory from firestone
   const updateInventory = async () => {
@@ -41,6 +43,8 @@ export default function Inventory() {
       await setDoc(docRef, { quantity: 1 });
     }
     await updateInventory();
+    setSuccessMessage(`"${item}" has been added to the inventory.`);
+    setTimeout(() => setSuccessMessage(''), 3000); // Clear message after 3 seconds
   };
 
   const removeItem = async (item) => {
@@ -112,6 +116,13 @@ export default function Inventory() {
               placeholder="search inventory ..." 
               className="font-custom text-lg text-center text-[#e1e1e1db] bg-[#7C4455] rounded-full py-2 px-32 w-full" 
             />
+            <button 
+              onClick={() => addItem(itemName)}
+              className="text-sm text-[#e1e1e1db] border border-[#e1e1e1db] rounded-full py-1 px-3 hover:-translate-y-1 duration-200"> Add Item
+            </button>
+            <div className="bg-green-500 text-white p-4 rounded-md mb-4">
+            {successMessage}
+          </div>
           </div>
 
           <div className="flex-col bg-[#7c445566] p-10 rounded-md overflow-hidden overflow-y-auto h-[525px] max-h-[525px] w-full"> 
